@@ -2,7 +2,6 @@ class Solution:
     def minInsAndDel(self, a, b):
         m, n = len(a), len(b)
         dp = [[0] * (n + 1) for _ in range(m + 1)]
-
         for i in range(m + 1):
             for j in range(n + 1):
                 if i == 0:
@@ -13,5 +12,4 @@ class Solution:
                     dp[i][j] = dp[i - 1][j - 1]
                 else:
                     dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1])
-
         return dp[m][n]
